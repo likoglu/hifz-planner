@@ -1,6 +1,9 @@
 {
   "name": "hifz-planner",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "private": true,
   "description": "Kur'an-ı Kerim Hafızlık Planlayıcı - Dinamik Ezber Takip Uygulaması",
   "dependencies": {
