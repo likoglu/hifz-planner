@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#059669" />
+    <meta name="description" content="Kur'an-ı Kerim Hafızlık Planlayıcı - Dinamik Ezber Takip Uygulaması" />
+    
+    <!-- PWA için -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- iOS PWA ayarları -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hafızlık" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Hafızlık Planlayıcı</title>
+    
+    <style>
+      /* Yükleme animasyonu */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .loading-screen.hidden {
+        display: none;
+      }
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255,255,255,0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .loading-text {
+        color: white;
+        margin-top: 20px;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekiyor.</noscript>
+    
+    <!-- Yükleme ekranı -->
+    <div id="loading" class="loading-screen">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Hafızlık Planlayıcı Yükleniyor...</div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Uygulama yüklendiğinde loading ekranını kaldır
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.getElementById('loading').classList.add('hidden');
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
